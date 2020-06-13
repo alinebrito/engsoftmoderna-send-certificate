@@ -29,7 +29,7 @@ Prof. Marco Tulio Valente
 Coordenador do curso.
 
 P.S. Para quem não fez, gostaríamos de solicitar o preenchimento do formulário de avaliação do curso, disponível em:
-https://forms.gle/t49AC1Pa6LDXmkcJA"""
+xxxxxxxxx"""
 
 def add_file(path, file_name):
   with open(os.path.join(path, file_name), "rb") as attachment:
