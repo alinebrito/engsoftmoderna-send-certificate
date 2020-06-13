@@ -20,6 +20,10 @@ Script para enviar os certificados das turmas do [Curso de Extensão em Engenhar
 
 > python3 send.py
 
+## Instalar dependências
+
+> pip3 install -r requirements.txt
+
 
 
 
