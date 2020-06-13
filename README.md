@@ -3,6 +3,8 @@ Script para enviar os certificados das turmas do [Curso de Extensão em Engenhar
 
 ## Instruções:
 
+0) Habilitar login via apps no Gmail do curso: [lesssecureapps](https://myaccount.google.com/lesssecureapps)
+
 1) Criar um arquivo  CSV separado por ";" com os dados dos alunos.  Exemplo:
 
 > matricula;numero;nome;email\
