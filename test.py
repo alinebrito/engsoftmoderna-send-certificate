@@ -15,18 +15,12 @@ class bcolors:
     FAIL = '\033[91m'
     ENDC = '\033[0m'
  
-def is_valid_file(path, file_name):
-  is_valid = os.path.isfile(os.path.join(path, file_name))
-  if (not is_valid):
-    print(f"{bcolors.FAIL}ERROR: File not found %s{bcolors.ENDC}" % (file_name))
-  return is_valid
-
 def test_files(student_name, student_code):
   path = util.get_path(student_code)
   filename_certificate = util.get_certificate(student_code)
   filename_declaration = util.get_declaration(student_code)
   print('\n-----\nProcessing %d (%s)...' % (student_code, student_name))
-  if (is_valid_file(path,filename_certificate) and is_valid_file(path, filename_declaration)):
+  if (util.is_valid_file(path,filename_certificate) and util.is_valid_file(path, filename_declaration)):
     print(f"{bcolors.OKBLUE}OK files.{bcolors.ENDC}")
   return 
 
