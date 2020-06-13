@@ -5,15 +5,15 @@ class bcolors:
     OKBLUE = '\033[94m'
     FAIL = '\033[91m'
     ENDC = '\033[0m'
-    
+
 def get_path(code):
   return 'docs'
 
 def get_certificate(code):
-  return 'certificado' + str(code) + '.pdf'
+  return "certificado{}.pdf".format(code)
 
 def get_declaration(code):
-  return 'declaracao' + str(code) + '.pdf'
+  return "declaracao{}.pdf".format(code)
 
 def read_csv(file_name):
   print("Reading %s..." % file_name)
