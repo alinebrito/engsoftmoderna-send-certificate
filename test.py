@@ -8,45 +8,41 @@ from email.mime.text import MIMEText
 import os.path
 import pandas as pd
 from time import sleep
+import util
 
-def get_path(code):
-  return 'docs/'
+class bcolors:
+    OKBLUE = '\033[94m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+ 
+def is_valid_file(path, file_name):
+  is_valid = os.path.isfile(os.path.join(path, file_name))
+  if (not is_valid):
+    print(f"{bcolors.FAIL}ERROR: File not found %s{bcolors.ENDC}" % (file_name))
+  return is_valid
 
-def get_certificate(code):
-  return 'certificado' + str(code) + '.pdf'
-
-def get_declaration(code):
-  return 'declaracao' + str(code) + '.pdf'
-  
 def test_files(student_name, student_code):
-  path = get_path(student_code)
-  filename_certificate = get_certificate(student_code)
-  filename_declaration = get_declaration(student_code)
-
+  path = util.get_path(student_code)
+  filename_certificate = util.get_certificate(student_code)
+  filename_declaration = util.get_declaration(student_code)
   print('\n-----\nProcessing %d (%s)...' % (student_code, student_name))
-  if (not os.path.isfile(path + filename_certificate)) or (not os.path.isfile(path + filename_declaration)):
-    print('\nERRO: File not found, %s, %i' % (student_email, student_code))
-    print('%s' % filename_certificate)
-    print('%s' % filename_declaration)
-  else:
-    print('OK.') 
+  if (is_valid_file(path,filename_certificate) and is_valid_file(path, filename_declaration)):
+    print(f"{bcolors.OKBLUE}OK files.{bcolors.ENDC}")
   return 
 
-def read_csv(file_name):
-  print("Reading %s..." % file_name)
-  dataset = ""
-  if not os.path.isfile(file_name):
-    print('ERRO: File not found %s' % file_name)
-  else:
-    dataset = pd.read_csv(file_name, sep=";", keep_default_na=False)
-  return dataset
+def test_student_info(student_email, student_code):
+  print(f"{bcolors.OKBLUE}OK code.{bcolors.ENDC}" if student_code else f"{bcolors.FAIL}Invalid code.{bcolors.ENDC}")
+  print(f"{bcolors.OKBLUE}OK email.{bcolors.ENDC}" if student_email else f"{bcolors.FAIL}Invalid email.{bcolors.ENDC}")
+  pass
 
 def run():
-  file_name_list_students = input ('CSV de alunos aprovados (ex: aprovados_lote_1.csv): ')
-  dataset = read_csv(file_name_list_students)
+  file_name_list_students = input ('CSV de alunos aprovados (ex: alunos_aprovados_exemplo.csv): ')
+  dataset = util.read_csv(file_name_list_students)
   for index, row in dataset.iterrows():
     student_name = row.get('nome')
     student_code = row.get('numero')
+    student_email = row.get('email')
     test_files(student_name, student_code)
-  print('\nEnd.')
+    test_student_info(student_email, student_code)
+  print('\n-----\nEnd.')
 run()
