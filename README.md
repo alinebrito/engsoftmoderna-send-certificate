@@ -7,7 +7,7 @@ Script para enviar os certificados das turmas do [Curso de Extensão em Engenhar
 
 1) Criar um arquivo  CSV separado por ";" com os dados dos alunos.  Exemplo: [alunos_aprovados_exemplo.csv](https://github.com/alinebrito/engsoftmoderna-send-certificate/blob/master/alunos_aprovados_exemplo.csv)
 
-2) Armazernar no diretório `docs` o certificado e declaracao do aluno conforme o seu número. Por exemplo, para o aluno de código 41:
+2) Armazenar no diretório `docs` o certificado e declaracao do aluno conforme o seu número. Por exemplo, para o aluno de código 41:
 
 >docs/declaracao41.pdf\
 >docs/certificado41.pdf
