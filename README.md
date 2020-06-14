@@ -12,11 +12,11 @@ Script para enviar os certificados das turmas do [Curso de Extensão em Engenhar
 >docs/declaracao41.pdf\
 >docs/certificado41.pdf
 
-2) Verificar se os arquivos estão corretos. Para tanto, execute o script de teste e informe o nome do arquivo CSV:
+3) Verificar se os arquivos estão corretos. Para tanto, execute o script de teste e informe o nome do arquivo CSV:
 
 > python3 test.py
 
-3) Envie os certificados e declarações. Os emails são enviados em Bcc para o email do curso (informado ao executar o script).
+4) Envie os certificados e declarações. Os emails são enviados em Bcc para o email do curso (informado ao executar o script).
 
 > python3 send.py
 
