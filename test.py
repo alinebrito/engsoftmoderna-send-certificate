@@ -1,4 +1,5 @@
 import email, smtplib, ssl
+import sys
 
 from email import encoders
 from email.mime.base import MIMEBase
@@ -30,7 +31,13 @@ def test_student_info(student_email, student_code):
   pass
 
 def run():
-  file_name_list_students = input ('CSV de alunos aprovados (ex: alunos_aprovados_exemplo.csv): ')
+
+  if(len(sys.argv) < 2):
+    print("Usage: {} lista_aprovados.csv\n".format(sys.argv[0]))
+    return
+
+  file_name_list_students = sys.argv[1]
+
   dataset = util.read_csv(file_name_list_students)
   for index, row in dataset.iterrows():
     student_name = row.get('nome')
