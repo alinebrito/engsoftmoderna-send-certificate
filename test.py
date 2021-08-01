@@ -19,9 +19,9 @@ class bcolors:
 def test_files(student_name, student_code):
   path = util.get_path(student_code)
   filename_certificate = util.get_certificate(student_code)
-  filename_declaration = util.get_declaration(student_code)
+  # filename_declaration = util.get_declaration(student_code)
   print('\n-----\nProcessing %d (%s)...' % (student_code, student_name))
-  if (util.is_valid_file(path,filename_certificate) and util.is_valid_file(path, filename_declaration)):
+  if (util.is_valid_file(path,filename_certificate)):
     print(f"{bcolors.OKBLUE}OK files.{bcolors.ENDC}")
   return 
 

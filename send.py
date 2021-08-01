@@ -10,14 +10,11 @@ import pandas as pd
 from time import sleep
 import util
 
-subject = "Certificado do Curso de Extensão em Engenharia de Software Moderna"
+subject = "Certificado do Curso de Extensão em Teste de Software (DCC/UFMG)"
 body = """\
 Prezado(a) aluno(a),
 
-Segue em anexo:
-
-* o certificado de aprovação no curso
-* uma declaração com as notas obtidas.
+Segue em anexo o certificado de aprovação.
 
 Mais uma vez, parabéns pela conclusão e aprovação no nosso curso.
 
@@ -29,7 +26,7 @@ Prof. André Hora
 Coordenador do curso.
 
 P.S. Para quem não fez, gostaríamos de solicitar o preenchimento do formulário de avaliação do curso, disponível em:
-https://docs.google.com/forms/d/e/1FAIpQLSeRBzayt-D_gLBGsZBhpAIcWp0tfu4fUP2FZ2RRd5JAxO1nMA/viewform?usp=sf_link"""
+https://docs.google.com/forms/d/e/1FAIpQLSfzuSNT9Q_xmVvJFk9R3nvPyBHNUK940BbyhL7FPXd7MaNUUg/viewform?usp=sf_link"""
 
 def add_file(path, file_name):
   with open(os.path.join(path, file_name), "rb") as attachment:
@@ -46,9 +43,9 @@ def send_email(sender_email, password, student_email, student_code):
 
   path = util.get_path(student_code)
   filename_certificate = util.get_certificate(student_code)
-  filename_declaration = util.get_declaration(student_code)
+  # filename_declaration = util.get_declaration(student_code)
 
-  if(util.is_valid_file(path, filename_certificate) and util.is_valid_file(path, filename_declaration)):
+  if(util.is_valid_file(path, filename_certificate)):
     message = MIMEMultipart()
     message["From"] = sender_email
     message["To"] = student_email
@@ -57,8 +54,8 @@ def send_email(sender_email, password, student_email, student_code):
 
     part1 = add_file(path, filename_certificate)
     message.attach(part1)
-    part2 = add_file(path, filename_declaration)
-    message.attach(part2)
+    # part2 = add_file(path, filename_declaration)
+    # message.attach(part2)
 
     text = message.as_string()
     print('Sending from %s to %s' % (sender_email, student_email))
