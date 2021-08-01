@@ -10,7 +10,7 @@ import pandas as pd
 from time import sleep
 import util
 
-subject = "Número de matrícula - Curso de Extensão em Engenharia de Software Moderna (DCC/UFMG)"
+subject = "Número de matrícula - Curso de Extensão em Teste de Software (DCC/UFMG)"
 body = """\
 
 Prezado(a) aluno(a),
@@ -18,7 +18,7 @@ Prezado(a) aluno(a),
 O seu número de matrícula na Turma {} do curso é {}.
 
 --
-Curso de Extensão em Engenharia de Software Moderna - DCC/UFMG
+Curso de Extensão em Teste de Software - DCC/UFMG
 
 """
 
